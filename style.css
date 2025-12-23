@@ -11,32 +11,37 @@ h1 {
   margin-bottom: 32px;
 }
 
+/* グリッドコンテナ */
 #container {
-  max-width: 720px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.item {
-  margin-bottom: 32px;
+/* カード */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 32px 24px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.title {
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.card:active {
+  transform: translateY(0);
+}
+
+/* タイトル */
+.card-title {
   font-size: clamp(18px, 4.5vw, 22px);
   font-weight: bold;
-  margin-bottom: 12px;
-}
-
-.file-button {
-  width: 100%;
-  font-size: clamp(16px, 4vw, 20px);
-  padding: 16px 20px;
-  border: none;
-  background: #0066cc;
-  color: #fff;
-  cursor: pointer;
-  border-radius: 8px;
-}
-
-.file-button:hover {
-  background: #004fa3;
+  line-height: 1.4;
 }

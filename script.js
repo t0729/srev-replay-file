@@ -14,33 +14,25 @@ function loadData() {
         throw new Error("title または filename が配列じゃない");
       }
 
-      if (data.title.length !== data.filename.length) {
-        console.warn("title と filename の数が違う");
-      }
-
       const container = document.getElementById("container");
-      container.innerHTML = ""; // 再描画対策
+      container.innerHTML = "";
 
       data.filename.forEach((name, index) => {
-        const item = document.createElement("div");
-        item.className = "item";
+        const card = document.createElement("div");
+        card.className = "card";
 
         const title = document.createElement("div");
-        title.className = "title";
+        title.className = "card-title";
         title.textContent = data.title[index] ?? "";
 
-        const button = document.createElement("button");
-        button.className = "file-button";
-        button.textContent = name;
+        card.appendChild(title);
 
-        button.addEventListener("click", () => {
+        card.addEventListener("click", () => {
           const url = BASE_URL + encodeURIComponent(name);
           window.location.href = url;
         });
 
-        item.appendChild(title);
-        item.appendChild(button);
-        container.appendChild(item);
+        container.appendChild(card);
       });
     })
     .catch(err => {
